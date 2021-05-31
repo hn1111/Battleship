@@ -6,11 +6,16 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    game = new Game();
+    askName();
+
+    // Dialog is causing incorrect field drawing
+    // So setupUi is before askName
     ui->setupUi(this);
 
-    game = new Game();
     ui->fieldCurrentPlayer->setBoard(game->player1, false);
     ui->fieldCurrentPlayer->setGame(game);
+
     ui->fieldOtherPlayer->setBoard(game->player2, true);
     ui->fieldOtherPlayer->setGame(game);
 
@@ -82,7 +87,8 @@ void MainWindow::displayWinMessage(QString s)
 
 void MainWindow::updateLabels()
 {
-
+    ui->labelP1->setText(game->player1->name);
+    ui->labelP2->setText(game->player2->name);
     QFont baldFont = QFont();
     baldFont.setPointSize(20);
     QFont nonBaldFont = QFont();
@@ -94,8 +100,6 @@ void MainWindow::updateLabels()
         ui->labelP1->setFont(nonBaldFont);
         ui->labelP2->setFont(baldFont);
     }
-
-
 }
 
 void MainWindow::about()
@@ -111,5 +115,13 @@ void MainWindow::about()
 void MainWindow::exit()
 {
     QApplication::exit();
+}
+
+void MainWindow::askName()
+{
+    NameDialog *nd = new NameDialog(this);
+    nd->exec();
+    game->player1->name = nd->name();
+
 }
 

@@ -6,6 +6,7 @@
 #include "pcplayer.h"
 #include "field.h"
 #include "game.h"
+#include "namedialog.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -30,6 +31,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Game *game;
+    void askName();
 
 
 };

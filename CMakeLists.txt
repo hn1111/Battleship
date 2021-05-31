@@ -54,6 +54,9 @@ set(PROJECT_SOURCES
         fieldview.h
         game.cpp
         game.h
+        namedialog.cpp
+        namedialog.h
+        namedialog.ui
 
 )
 

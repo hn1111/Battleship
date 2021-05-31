@@ -58,6 +58,7 @@ void FieldView::showEvent(QShowEvent *event)
                       w, sqHeight + sqHeight * i);
     }
 
+
     // width and height of a field are known only after exec of showEvent
     field = new Field(height(), width(), sqWidth, sqHeight, &player->board);
     scene()->addItem(field);
