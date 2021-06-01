@@ -9,6 +9,8 @@
 class Board
 {
     friend class Game;
+    friend class Player;
+    friend class CompPlayer;
 public:
     Board() {};
     ~Board();
@@ -18,16 +20,16 @@ public:
         return m_ships;
     }
 
-    int columns() {
+    int columns() const {
         return m_columns;
     }
-    int rows() {
+    int rows() const {
         return m_rows;
     }
     Square::Status status(int col, int row) const;
     Square& at(int col, int row) ;
     const Square& at(int col, int row) const;
-    bool isSpaceFree(int col, int row, int sqNum, Ship::Direction);
+    bool isSpaceFree(int col, int row, int sqNum, Ship::Direction) const;
     void createSquarePointers(Ship *sh);
 //    void display() {
 //        for (int row = 0; row < m_rows; row++) {
@@ -48,7 +50,7 @@ private:
     void clear();
 
     Ship *putShipRandom(int sqNum);
-    bool isSquaresAroundFree(int col, int row);
+    bool isSquaresAroundFree(int col, int row) const;
 };
 
 #endif // BOARD_H

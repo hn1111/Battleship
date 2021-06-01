@@ -14,11 +14,14 @@ public:
     virtual ~Player() {};
     int shipsAlive() const;
 
+    virtual void startNewGame() {
+        board.createShips();
+    };
     Board board;
     Game *game;
     QString name;
     bool checkLose();
-    virtual void makeTurn() = 0;
+    virtual void makeMove() = 0;
 };
 
 #endif // PLAYER_H

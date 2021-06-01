@@ -7,7 +7,7 @@ class PCPlayer : public Player
 {
 public:
     PCPlayer();
-    void makeTurn() override {
+    void makeMove() override {
     };
 };
 

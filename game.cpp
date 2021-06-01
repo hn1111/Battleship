@@ -21,9 +21,10 @@ void Game::startNewGame()
 {
     turn = player1;
     player1->board = Board(WIDTH_SQUARES_NUM, HEIGHT_SQUARES_NUM);
-    player1->board.createShips();
     player2->board = Board(WIDTH_SQUARES_NUM, HEIGHT_SQUARES_NUM);
-    player2->board.createShips();
+
+    player1->startNewGame();
+    player2->startNewGame();
 }
 
 void Game::handleTurn(Player *p, Square& square)
@@ -49,7 +50,7 @@ void Game::handleTurn(Player *p, Square& square)
     case Square::miss:
         break;
     }
-    turn->makeTurn();
+    turn->makeMove();
 }
 
 void Game::handleTurn(Player *p, int col, int row)

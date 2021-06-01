@@ -12,6 +12,8 @@ const int HEIGHT_SQUARES_NUM = 10;
 class Game : public QObject
 {
     Q_OBJECT
+
+    friend class Player;
 public:
     explicit Game (QObject *parent = nullptr);
     ~Game();

@@ -31,7 +31,7 @@ void Board::clear()
         sq.status = Square::empty;
 }
 
-bool Board::isSpaceFree(int col, int row, int sqNum, Ship::Direction d)
+bool Board::isSpaceFree(int col, int row, int sqNum, Ship::Direction d) const
 {
     if (d == Ship::vertical) {
         for (int i = 0; i < sqNum; i++) {
@@ -94,7 +94,7 @@ Ship* Board::putShipRandom(int sqNum)
     return new Ship(col, row, sqNum, d);
 }
 
-bool Board::isSquaresAroundFree(int col, int row)
+bool Board::isSquaresAroundFree(int col, int row) const
 {
     // up
     if (row > 0) {

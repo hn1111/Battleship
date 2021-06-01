@@ -12,7 +12,14 @@ class CompPlayer : public Player
 {
 public:
     CompPlayer();
-    void makeTurn() override;
+    void makeMove() override;
+
+public slots:
+    void startNewGame() override;
+
+private:
+    QList<Square> nextTarget;
+    QList<Square> possibleMoves;
 };
 
 #endif // COMPPLAYER_H
